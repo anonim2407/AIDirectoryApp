@@ -1,6 +1,5 @@
 import {
 
-    createCurrentUserHook,
     createClient
 } from 'next-sanity'
 

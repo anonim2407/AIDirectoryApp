@@ -103,7 +103,7 @@ function Post({ post }: Props) {
 
         <hr className="max-w-lg my-10 mx-auto border border-green-300" />
 
-        {/* Comments */}
+        {/* Comments
         <div className=" container max-w-3xl mx-auto p-5">
           <div className="flex justify-start items-center gap-2 w-full text-left bg-neutral-500 rounded-lg p-2">
             <span className=" text-lg">&#128172;</span>
@@ -193,7 +193,7 @@ function Post({ post }: Props) {
               className=" shadow bg-green-300 hover:bg-green-400 focus:shadow-outline focus:outline-none text-black font-bold px-4 py-2 rounded cursor-pointer"
             />
           </form>
-        )}
+        )} */}
       </main>
     </Layout>
   );
@@ -222,36 +222,36 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const query = `*[_type == "post" && slug.current == $slug][0]{
-    _id,
-    title,
-    description,
-      mainImage,
-      slug,    
-      category->{title},
-      price->{title},
-      link,
-      body,
-        "comments": *[
-          _type == "comment" &&
-          post._ref == ^._id &&
-          approved == true],    
-    }`;
-  const post = await sanityClient.fetch(query, {
-    slug: params?.slug,
-  });
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const query = `*[_type == "post" && slug.current == $slug][0]{
+//     _id,
+//     title,
+//     description,
+//       mainImage,
+//       slug,    
+//       category->{title},
+//       price->{title},
+//       link,
+//       body,
+//         "comments": *[
+//           _type == "comment" &&
+//           post._ref == ^._id &&
+//           approved == true],    
+//     }`;
+//   const post = await sanityClient.fetch(query, {
+//     slug: params?.slug,
+//   });
 
-  if (!post) {
-    return {
-      notFound: true,
-    };
-  }
+//   if (!post) {
+//     return {
+//       notFound: true,
+//     };
+//   }
 
-  return {
-    props: {
-      post,
-    },
-    revalidate: 60, // despues de 60 segundos actualiza todos los posts
-  };
-};
+//   return {
+//     props: {
+//       post,
+//     },
+//     revalidate: 60, // despues de 60 segundos actualiza todos los posts
+//   };
+// };

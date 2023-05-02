@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+sanity-io-directorio/node_modules
+sanity-io-directorio/dist
 # next.js
 /.next/
 /out/

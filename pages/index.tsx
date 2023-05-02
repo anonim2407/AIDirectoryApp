@@ -15,12 +15,6 @@ interface Props {
 export default function Home({ posts, category }: Props) {
   const [selectedCategory, setSelectedCategory] = useState("0");
   const filteredItems = posts.filter((item) => item.category._id === selectedCategory);
-console.log(selectedCategory)
-  useEffect(() => {
-  console.log(filteredItems)
-  }, [selectedCategory])
-  
-  console.log(filteredItems);
   return (
     <Layout
       title={

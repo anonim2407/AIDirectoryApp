@@ -7,18 +7,18 @@ function Header() {
   return (
     <header className="z-10 fixed top-0 left-0 right-0">
       <div className=" p-5 bg-[#ffffff63] backdrop-blur-[5px]">
-        <div className="flex justify-between text-black container max-w-7xl mx-auto">
+        <div className="flex justify-center text-black container max-w-8xl mx-auto">
           <div>
             <Link href={"/"}>
               <div>
-                <p className=" text-green-300 text-3xl font-extrabold">
+                <p className=" text-green-300 text-4xl font-extrabold">
                   BuscaTu<span className=" text-black">AI</span>
                 </p>
               </div>
             </Link>
           </div>
 
-          <nav className="hidden md:inline-flex items-center space-x-7 font-semibold">
+          {/* <nav className="hidden md:inline-flex items-center space-x-7 font-semibold">
             <Link
               className=" transition duration-300 hover:text-green-300"
               href={"/"}
@@ -74,10 +74,10 @@ function Header() {
                 />
               </svg>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
-      <nav
+      {/* <nav
         className={`absolute top-24 w-full md:hidden font-semibold transition duration-300 ${
           openManu ? " opacity-100 " : " opacity-0"
         }`}
@@ -108,7 +108,7 @@ function Header() {
             Blog
           </Link>
         </div>
-      </nav>
+      </nav> */}
     </header>  
     
   );

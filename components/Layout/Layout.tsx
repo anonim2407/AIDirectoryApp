@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Header";
 import Head from "next/head";
+import Footer from "../Footer";
 
 export default function Layout({ children, title, description }: any) {
   return (
@@ -22,6 +23,7 @@ export default function Layout({ children, title, description }: any) {
 
       <Header />
       <main className="bg-[#001322]">{children}</main>
+      <Footer/>
     </>
   );
 }

@@ -34,7 +34,7 @@ export default function Home({ posts, category }: Props) {
             backgroundSize: "cover",
           }}
         >
-          <div className="px-5 space-y-5 text-green-300  container max-w-7xl mx-auto flex flex-col justify-end items-center md:items-end">
+          <div className="px-5 space-y-5 text-green-300  container max-w-8xl mx-auto flex flex-col justify-end items-center md:items-end">
             <h1 className="text-2xl md:text-4xl max-w-xl uppercase  text-green-300">
               El mayor directorio de{" "}
               <span className="text-5xl md:text-6xl font-bold ">
@@ -45,23 +45,24 @@ export default function Home({ posts, category }: Props) {
           </div>
         </section>
 
-        <section className="container max-w-7xl mx-auto ">
-          <article className=" flex justify-center my-10">
+        <section className="container max-w-8xl mx-auto p-4 ">
+          <article className="flex flex-col justify-center my-10 space-y-3">
+            <h4 className="text-slate-300 text-lg font-semibold text-center md:text-left">A continuación puedes filtrar las inteligencias artificiales por categoría:</h4>
             <select
-              className=" rounded-lg"
+              className="rounded-lg bg-slate-300 text-lg p-2"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
-              <option value={"0"}>-- Selecciona una categoria --</option>
+              <option value={"0"}>Todas</option>
               {category.map((cat) => (
                 <option key={cat._id} value={cat._id}>{cat.title}</option>
               ))}
             </select>
           </article>
-          <article className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-6 p-4 md:p-6">
+          <article className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 md:gap-6 p-2">
             {selectedCategory === "0"
               ? posts.map((post) => (
-                  <div key={post._id} className="card relative h-96 w-auto ">
+                  <div key={post._id} className="card relative h-80 w-auto ">
                     <div className="face front">
                       <Image
                         className=" absolute w-full h-full object-cover"
@@ -80,11 +81,11 @@ export default function Home({ posts, category }: Props) {
                       </p>
                       <ul className=" flex flex-col gap-2 overflow-y-auto rounded-lg">
                         <li className="flex justify-start items-center gap-2 w-full text-left bg-neutral-300 rounded-lg p-2">
-                          <span className=" text-lg">&#128176;</span>
+                          <span className=" ">&#128176;</span>
                           <p>{post.price.title}</p>
                         </li>
                         <li className="flex justify-start items-center gap-2 w-full text-left bg-blue-300 rounded-lg p-2">
-                          <span className=" text-lg">&#127759;</span>
+                          <span className=" ">&#127759;</span>
                           <Link
                             className=" underline underline-offset-2"
                             href={post.link}
@@ -93,7 +94,7 @@ export default function Home({ posts, category }: Props) {
                           </Link>
                         </li>
                         <li className="flex justify-start items-center gap-2 w-full  text-left bg-indigo-300 rounded-lg p-2">
-                          <span className=" text-lg">&#128196;</span>
+                          <span className=" ">&#128196;</span>
                           <PortableText
                             className=""
                             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
@@ -128,7 +129,7 @@ export default function Home({ posts, category }: Props) {
                         </li>
                       </ul>
                       <Link
-                        className="p-3 bg-green-300 rounded-lg"
+                        className="p-2 bg-green-300 rounded-lg"
                         href={`/post/${post.slug.current}`}
                       >
                         Mas Detalle
@@ -137,7 +138,7 @@ export default function Home({ posts, category }: Props) {
                   </div>
                 ))
               : filteredItems?.map(post => (
-                  <div key={post._id} className="card relative h-96 w-auto ">
+                  <div key={post._id} className="card relative h-80 w-auto ">
                     <div className="face front">
                       <Image
                         className=" absolute w-full h-full object-cover"
@@ -156,11 +157,11 @@ export default function Home({ posts, category }: Props) {
                       </p>
                       <ul className=" flex flex-col gap-2 overflow-y-auto rounded-lg">
                         <li className="flex justify-start items-center gap-2 w-full text-left bg-neutral-300 rounded-lg p-2">
-                          <span className=" text-lg">&#128176;</span>
+                          <span className=" ">&#128176;</span>
                           <p>{post.price.title}</p>
                         </li>
                         <li className="flex justify-start items-center gap-2 w-full text-left bg-blue-300 rounded-lg p-2">
-                          <span className=" text-lg">&#127759;</span>
+                          <span className=" ">&#127759;</span>
                           <Link
                             className=" underline underline-offset-2"
                             href={post.link}
@@ -169,7 +170,7 @@ export default function Home({ posts, category }: Props) {
                           </Link>
                         </li>
                         <li className="flex justify-start items-center gap-2 w-full  text-left bg-indigo-300 rounded-lg p-2">
-                          <span className=" text-lg">&#128196;</span>
+                          <span className=" ">&#128196;</span>
                           <PortableText
                             className=""
                             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
